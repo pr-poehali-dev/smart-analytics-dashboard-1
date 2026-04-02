@@ -214,7 +214,7 @@ export function LinkBioPage() {
           <ProfileSection
             name="Artem_Maybah"
             bio="🎮 Стример • Игры, общение, атмосфера"
-            imageUrl="/placeholder-user.jpg"
+            imageUrl="https://cdn.poehali.dev/projects/d7e22f90-c751-49f4-a0b9-bf4b2613f966/bucket/b19c579f-71d9-46c0-ad65-7dd63fed382a.jpg"
           />
         </motion.div>
 
