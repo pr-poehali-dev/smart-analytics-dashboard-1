@@ -21,7 +21,7 @@ const links = [
   {
     title: "Telegram-канал",
     description: "Анонсы стримов и новости",
-    href: "#",
+    href: "https://t.me/+wNTOMPxTSdJlMjRi",
     icon: Send,
   },
   {
