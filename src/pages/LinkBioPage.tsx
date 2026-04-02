@@ -269,6 +269,33 @@ export function LinkBioPage() {
               </div>
             </div>
           </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <div
+              className="rounded-2xl px-5 py-4"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                boxShadow: "inset 0 1px 1px rgba(255,255,255,0.08), 0 0 0 1px rgba(255,255,255,0.06)",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Icon name="ShieldCheck" size={16} className="text-purple-400" />
+                <span className="text-sm font-semibold text-purple-300">Правила чата</span>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <span className="text-purple-400 font-bold text-sm">1.</span>
+                  <span className="text-white/70 text-sm">Нельзя ругаться матом на трансляции</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-purple-400 font-bold text-sm">2.</span>
+                  <span className="text-white/70 text-sm">Не писать в чат плохие слова</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
