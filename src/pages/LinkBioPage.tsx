@@ -2,45 +2,45 @@ import { motion } from "framer-motion"
 import { ProfileSection } from "@/components/ProfileSection"
 import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
-import { Globe, Youtube, Mail, ShoppingBag, FileText, MessageCircle, Send } from "lucide-react"
+import { Youtube, Twitch, Send, MessageCircle, Trophy, Radio } from "lucide-react"
 
 const links = [
   {
-    title: "Мой сайт",
-    description: "Портфолио и услуги",
+    title: "Twitch",
+    description: "Смотреть стримы в прямом эфире",
     href: "#",
-    icon: Globe,
+    icon: Twitch,
   },
   {
-    title: "YouTube канал",
-    description: "Видео и туториалы",
+    title: "YouTube",
+    description: "Лучшие моменты и хайлайты",
     href: "#",
     icon: Youtube,
   },
   {
-    title: "Магазин",
-    description: "Товары и услуги",
-    href: "#",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Telegram",
-    description: "Написать напрямую",
+    title: "Telegram-канал",
+    description: "Анонсы стримов и новости",
     href: "#",
     icon: Send,
   },
   {
-    title: "Бесплатные материалы",
-    description: "Шаблоны и гайды",
+    title: "Discord-сервер",
+    description: "Общение с комьюнити",
     href: "#",
-    icon: FileText,
+    icon: MessageCircle,
+  },
+  {
+    title: "Донат",
+    description: "Поддержать стримера",
+    href: "#",
+    icon: Trophy,
   },
 ]
 
 const socials = [
+  { icon: Twitch, href: "#", label: "Twitch" },
+  { icon: Youtube, href: "#", label: "YouTube" },
   { icon: Send, href: "#", label: "Telegram" },
-  { icon: MessageCircle, href: "#", label: "WhatsApp" },
-  { icon: Mail, href: "#", label: "Email" },
 ]
 
 const containerVariants = {
@@ -73,13 +73,13 @@ const itemVariants = {
 export function LinkBioPage() {
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
-      <div className="fixed inset-0 z-0 bg-gradient-to-br from-slate-50 via-white to-slate-100" />
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#0d0d1a] via-[#1a1035] to-[#0d1a2e]" />
 
       {/* Animated gradient orbs */}
       <motion.div
         className="fixed z-0 w-[500px] h-[500px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(147, 51, 234, 0.25) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(147, 51, 234, 0.45) 0%, transparent 70%)",
           filter: "blur(60px)",
           top: "-10%",
           left: "-10%",
@@ -99,7 +99,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[600px] h-[600px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(99, 44, 209, 0.5) 0%, transparent 70%)",
           filter: "blur(80px)",
           top: "30%",
           right: "-20%",
@@ -119,7 +119,7 @@ export function LinkBioPage() {
       <motion.div
         className="fixed z-0 w-[450px] h-[450px] rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, transparent 70%)",
           filter: "blur(70px)",
           bottom: "-5%",
           left: "20%",
@@ -211,9 +211,9 @@ export function LinkBioPage() {
       >
         <motion.div variants={itemVariants} className="pt-2">
           <ProfileSection
-            name="GlassLinks"
-            bio="Креативный дизайнер и разработчик"
-            imageUrl="/images/544291433-18043960274659947-5766591717842883293-n.jpg"
+            name="Ваш Никнейм"
+            bio="🎮 Стример • Игры, общение, атмосфера"
+            imageUrl="/placeholder-user.jpg"
           />
         </motion.div>
 
@@ -226,7 +226,7 @@ export function LinkBioPage() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
-          <SocialFooter socials={socials} copyright="2025 GlassLinks" />
+          <SocialFooter socials={socials} copyright="2026 Ваш Никнейм" />
         </motion.div>
       </motion.div>
     </main>

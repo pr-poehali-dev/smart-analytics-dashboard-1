@@ -16,33 +16,33 @@ export function LinkCard({ title, description, href, icon: Icon }: LinkCardProps
       rel="noopener noreferrer"
       className="group relative flex w-full items-center gap-4 rounded-[20px] px-4 py-4 overflow-hidden"
       style={{
-        background: "rgba(255, 255, 255, 0.45)",
+        background: "rgba(255, 255, 255, 0.07)",
         backdropFilter: "blur(40px) saturate(180%)",
         WebkitBackdropFilter: "blur(40px) saturate(180%)",
         boxShadow: `
-          inset 0 1px 1px rgba(255, 255, 255, 0.9),
-          inset 0 -1px 1px rgba(255, 255, 255, 0.1),
-          0 0 0 1px rgba(255, 255, 255, 0.6),
-          0 2px 4px rgba(0, 0, 0, 0.02),
-          0 4px 8px rgba(0, 0, 0, 0.04),
-          0 8px 16px rgba(0, 0, 0, 0.06),
-          0 16px 32px rgba(0, 0, 0, 0.08),
-          0 32px 64px rgba(0, 0, 0, 0.06)
+          inset 0 1px 1px rgba(255, 255, 255, 0.15),
+          inset 0 -1px 1px rgba(255, 255, 255, 0.05),
+          0 0 0 1px rgba(255, 255, 255, 0.1),
+          0 2px 4px rgba(0, 0, 0, 0.2),
+          0 4px 8px rgba(0, 0, 0, 0.15),
+          0 8px 16px rgba(0, 0, 0, 0.1),
+          0 16px 32px rgba(147, 51, 234, 0.1),
+          0 32px 64px rgba(147, 51, 234, 0.05)
         `,
-        border: "1px solid rgba(255, 255, 255, 0.5)",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
       }}
       whileHover={{
         scale: 1.02,
         y: -4,
         boxShadow: `
-          inset 0 1px 1px rgba(255, 255, 255, 1),
-          inset 0 -1px 1px rgba(255, 255, 255, 0.2),
-          0 0 0 1px rgba(255, 255, 255, 0.7),
-          0 4px 8px rgba(0, 0, 0, 0.04),
-          0 8px 16px rgba(0, 0, 0, 0.06),
-          0 16px 32px rgba(0, 0, 0, 0.08),
-          0 32px 64px rgba(0, 0, 0, 0.1),
-          0 48px 96px rgba(0, 0, 0, 0.08)
+          inset 0 1px 1px rgba(255, 255, 255, 0.2),
+          inset 0 -1px 1px rgba(255, 255, 255, 0.05),
+          0 0 0 1px rgba(147, 51, 234, 0.4),
+          0 4px 8px rgba(0, 0, 0, 0.3),
+          0 8px 16px rgba(0, 0, 0, 0.2),
+          0 16px 32px rgba(147, 51, 234, 0.15),
+          0 32px 64px rgba(147, 51, 234, 0.1),
+          0 0 30px rgba(147, 51, 234, 0.2)
         `,
       }}
       whileTap={{
@@ -79,28 +79,27 @@ export function LinkCard({ title, description, href, icon: Icon }: LinkCardProps
       />
 
       <div
-        className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-gray-700"
+        className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-purple-300"
         style={{
-          background: "rgba(255, 255, 255, 0.8)",
+          background: "rgba(147, 51, 234, 0.2)",
           boxShadow: `
-            inset 0 1px 2px rgba(255, 255, 255, 1),
-            inset 0 -1px 1px rgba(0, 0, 0, 0.02),
-            0 2px 4px rgba(0, 0, 0, 0.04),
-            0 4px 8px rgba(0, 0, 0, 0.04)
+            inset 0 1px 2px rgba(255, 255, 255, 0.1),
+            0 2px 4px rgba(0, 0, 0, 0.2),
+            0 0 12px rgba(147, 51, 234, 0.15)
           `,
-          border: "1px solid rgba(255, 255, 255, 0.6)",
+          border: "1px solid rgba(147, 51, 234, 0.3)",
         }}
       >
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </div>
 
       <div className="relative flex-1 min-w-0">
-        <h3 className="text-[15px] font-semibold text-gray-800 tracking-tight">{title}</h3>
-        {description && <p className="text-[12px] text-gray-500 truncate mt-0.5">{description}</p>}
+        <h3 className="text-[15px] font-semibold text-white tracking-tight">{title}</h3>
+        {description && <p className="text-[12px] text-purple-200/60 truncate mt-0.5">{description}</p>}
       </div>
 
       <ChevronRight
-        className="relative h-5 w-5 text-gray-400 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-gray-600"
+        className="relative h-5 w-5 text-purple-300/50 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-purple-300"
         strokeWidth={2}
       />
     </motion.a>

@@ -18,13 +18,13 @@ export function SocialFooter({ socials, copyright }: SocialFooterProps) {
       <div
         className="flex items-center gap-2 px-4 py-2 rounded-full"
         style={{
-          background: "rgba(255, 255, 255, 0.4)",
+          background: "rgba(255, 255, 255, 0.06)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           boxShadow: `
-            inset 0 1px 1px rgba(255, 255, 255, 0.6),
-            0 0 0 1px rgba(255, 255, 255, 0.3),
-            0 2px 8px rgba(0, 0, 0, 0.04)
+            inset 0 1px 1px rgba(255, 255, 255, 0.1),
+            0 0 0 1px rgba(255, 255, 255, 0.08),
+            0 2px 8px rgba(0, 0, 0, 0.3)
           `,
         }}
       >
@@ -35,7 +35,7 @@ export function SocialFooter({ socials, copyright }: SocialFooterProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.label}
-            className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 transition-colors hover:text-gray-700"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-purple-300/60 transition-colors hover:text-purple-300"
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 600, damping: 20 }}
@@ -45,7 +45,7 @@ export function SocialFooter({ socials, copyright }: SocialFooterProps) {
         ))}
       </div>
 
-      <p className="text-[11px] text-gray-400">{copyright}</p>
+      <p className="text-[11px] text-purple-200/30">{copyright}</p>
     </div>
   )
 }
