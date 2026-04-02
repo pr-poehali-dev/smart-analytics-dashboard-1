@@ -239,8 +239,12 @@ export function LinkBioPage() {
                 <Icon name="Clock" size={16} className="text-purple-400" />
                 <span className="text-sm font-semibold text-purple-300">Расписание стримов</span>
               </div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-white/70 text-sm">Понедельник</span>
+                <span className="text-white font-bold text-sm">21:00 МСК</span>
+              </div>
               <div className="flex items-center justify-between">
-                <span className="text-white/70 text-sm">Пн — Пт</span>
+                <span className="text-white/70 text-sm">Вторник</span>
                 <span className="text-white font-bold text-sm">21:00 МСК</span>
               </div>
             </div>
