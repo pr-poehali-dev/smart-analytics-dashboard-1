@@ -2,7 +2,8 @@ import { motion } from "framer-motion"
 import { ProfileSection } from "@/components/ProfileSection"
 import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
-import { Youtube, Twitch, Send, MessageCircle, Trophy, Radio } from "lucide-react"
+import { Youtube, Twitch, Send, MessageCircle, Trophy, Clock } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 const links = [
   {
@@ -223,6 +224,27 @@ export function LinkBioPage() {
               <LinkCard {...link} />
             </motion.div>
           ))}
+
+          <motion.div variants={itemVariants}>
+            <div
+              className="rounded-2xl px-5 py-4"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                boxShadow: "inset 0 1px 1px rgba(255,255,255,0.08), 0 0 0 1px rgba(255,255,255,0.06)",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Icon name="Clock" size={16} className="text-purple-400" />
+                <span className="text-sm font-semibold text-purple-300">Расписание стримов</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-white/70 text-sm">Пн — Пт</span>
+                <span className="text-white font-bold text-sm">21:00 МСК</span>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
