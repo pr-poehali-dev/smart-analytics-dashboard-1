@@ -211,7 +211,7 @@ export function LinkBioPage() {
       >
         <motion.div variants={itemVariants} className="pt-2">
           <ProfileSection
-            name="Ваш Никнейм"
+            name="Artem_Maybah"
             bio="🎮 Стример • Игры, общение, атмосфера"
             imageUrl="/placeholder-user.jpg"
           />
@@ -226,7 +226,7 @@ export function LinkBioPage() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
-          <SocialFooter socials={socials} copyright="2026 Ваш Никнейм" />
+          <SocialFooter socials={socials} copyright="2026 Artem_Maybah" />
         </motion.div>
       </motion.div>
     </main>
