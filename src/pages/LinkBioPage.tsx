@@ -8,7 +8,7 @@ const links = [
   {
     title: "Twitch",
     description: "Смотреть стримы в прямом эфире",
-    href: "#",
+    href: "https://www.twitch.tv/artem_maybach",
     icon: Twitch,
   },
   {
