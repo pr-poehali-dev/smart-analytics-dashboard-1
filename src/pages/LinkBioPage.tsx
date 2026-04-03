@@ -312,8 +312,8 @@ export function LinkBioPage() {
                 <span className="text-white font-bold text-sm">21:00 МСК</span>
               </div>
               <div className="flex items-center justify-between mt-2">
-                <span className="text-white/50 text-sm">Суббота</span>
-                <span className="text-white/40 text-sm">нет стрима</span>
+                <span className="text-white/70 text-sm">Суббота</span>
+                <span className="text-white font-bold text-sm">21:00 МСК</span>
               </div>
               <div className="flex items-center justify-between mt-2">
                 <span className="text-white/50 text-sm">Воскресенье</span>
