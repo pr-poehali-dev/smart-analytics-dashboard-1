@@ -296,6 +296,27 @@ export function LinkBioPage() {
               </div>
             </div>
           </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <div
+              className="rounded-2xl px-5 py-4"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+                boxShadow: "inset 0 1px 1px rgba(255,255,255,0.08), 0 0 0 1px rgba(255,255,255,0.06)",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Icon name="Truck" size={16} className="text-purple-400" />
+                <span className="text-sm font-semibold text-purple-300">Конвои</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-white/70 text-sm">Номер конвоя</span>
+                <span className="text-white font-mono font-bold text-sm">76561199798396081/101</span>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         <motion.div variants={itemVariants} className="pb-2">
