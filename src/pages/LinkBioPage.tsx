@@ -31,10 +31,10 @@ const links = [
     icon: MessageCircle,
   },
   {
-    title: "Донат",
-    description: "Поддержать стримера",
+    title: "Конвои",
+    description: "76561199798396081/101",
     href: "#",
-    icon: Trophy,
+    icon: MessageCircle,
   },
 ]
 
