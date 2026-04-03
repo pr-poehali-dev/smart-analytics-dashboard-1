@@ -1,8 +1,9 @@
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
 import { ProfileSection } from "@/components/ProfileSection"
 import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
-import { Youtube, Twitch, Send, MessageCircle, Trophy, Clock } from "lucide-react"
+import { Youtube, Twitch, Send, MessageCircle, Trophy, Clock, ChevronDown } from "lucide-react"
 import Icon from "@/components/ui/icon"
 
 const links = [
@@ -30,13 +31,9 @@ const links = [
     href: "#",
     icon: MessageCircle,
   },
-  {
-    title: "Конвои",
-    description: "76561199798396081/101",
-    href: "#",
-    icon: MessageCircle,
-  },
 ]
+
+const convoyNumber = "76561199798396081/101"
 
 const socials = [
   { icon: Twitch, href: "#", label: "Twitch" },
@@ -72,6 +69,8 @@ const itemVariants = {
 }
 
 export function LinkBioPage() {
+  const [convoyOpen, setConvoyOpen] = useState(false)
+
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
       <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#0d0d1a] via-[#1a1035] to-[#0d1a2e]" />
@@ -224,6 +223,59 @@ export function LinkBioPage() {
               <LinkCard {...link} />
             </motion.div>
           ))}
+
+          <motion.div variants={itemVariants}>
+            <div
+              className="rounded-[20px] overflow-hidden cursor-pointer"
+              style={{
+                background: "rgba(255, 255, 255, 0.07)",
+                backdropFilter: "blur(40px) saturate(180%)",
+                WebkitBackdropFilter: "blur(40px) saturate(180%)",
+                boxShadow: "inset 0 1px 1px rgba(255,255,255,0.15), 0 0 0 1px rgba(255,255,255,0.1)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+              }}
+              onClick={() => setConvoyOpen(!convoyOpen)}
+            >
+              <div className="flex items-center gap-4 px-4 py-4">
+                <div
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-purple-300"
+                  style={{
+                    background: "rgba(147, 51, 234, 0.2)",
+                    boxShadow: "inset 0 1px 2px rgba(255,255,255,0.1), 0 2px 4px rgba(0,0,0,0.2)",
+                    border: "1px solid rgba(147, 51, 234, 0.3)",
+                  }}
+                >
+                  <Icon name="Truck" size={20} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-[15px] font-semibold text-white tracking-tight">Конвои</h3>
+                  <p className="text-[12px] text-purple-200/60 mt-0.5">Нажми, чтобы увидеть номер</p>
+                </div>
+                <ChevronDown
+                  className="h-5 w-5 text-purple-300/50 transition-transform duration-300"
+                  style={{ transform: convoyOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                />
+              </div>
+              <AnimatePresence>
+                {convoyOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <div
+                      className="mx-4 mb-4 rounded-xl px-4 py-3 flex items-center justify-between"
+                      style={{ background: "rgba(147, 51, 234, 0.15)", border: "1px solid rgba(147, 51, 234, 0.3)" }}
+                    >
+                      <span className="text-white/70 text-sm">Номер конвоя</span>
+                      <span className="text-white font-mono font-bold text-sm">{convoyNumber}</span>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
 
           <motion.div variants={itemVariants}>
             <div
