@@ -2,7 +2,7 @@ import os
 import json
 import requests
 
-TWITCH_USERNAME = "artem_maybach"  # v3
+TWITCH_USERNAME = "artem_maybach"  # v4
 STEAM_ID = "76561199798396081"
 ETS2_APP_ID = "227300"
 
@@ -13,7 +13,10 @@ def get_twitch_token():
         "client_secret": os.environ["TWITCH_CLIENT_SECRET"],
         "grant_type": "client_credentials"
     })
-    return resp.json()["access_token"]
+    data = resp.json()
+    if "access_token" not in data:
+        raise Exception(f"Twitch auth error: {data}")
+    return data["access_token"]
 
 
 def get_stream_status(token):
