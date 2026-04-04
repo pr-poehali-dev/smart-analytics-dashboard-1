@@ -2,7 +2,7 @@ import os
 import json
 import requests
 
-TWITCH_USERNAME = "artem_maybach"  # v4
+TWITCH_USERNAME = "artem_maybach"  # v5
 STEAM_ID = "76561199798396081"
 ETS2_APP_ID = "227300"
 
