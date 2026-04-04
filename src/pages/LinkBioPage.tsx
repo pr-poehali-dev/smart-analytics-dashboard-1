@@ -311,7 +311,7 @@ export function LinkBioPage() {
                             Игроков в ETS2 сейчас
                           </span>
                           <span className="text-white font-bold text-sm">
-                            {streamData.convoy_players.toLocaleString("ru-RU")}
+                            {(streamData.convoy_players ?? 0).toLocaleString("ru-RU")}
                           </span>
                         </div>
                       )}
@@ -325,7 +325,7 @@ export function LinkBioPage() {
                             Зрителей на стриме
                           </span>
                           <span className="text-white font-bold text-sm">
-                            {streamData.stream.viewers.toLocaleString("ru-RU")}
+                            {(streamData.stream.viewers ?? 0).toLocaleString("ru-RU")}
                           </span>
                         </div>
                       )}
