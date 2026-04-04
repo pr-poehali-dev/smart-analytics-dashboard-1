@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "name": "Get stream status",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"stream": {}, "convoy_players": 0},
+      "bodyMatcher": "partial"
+    }
+  ]
+}

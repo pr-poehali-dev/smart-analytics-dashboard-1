@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ProfileSection } from "@/components/ProfileSection"
 import { LinkCard } from "@/components/LinkCard"
 import { SocialFooter } from "@/components/SocialFooter"
 import { Youtube, Twitch, Send, MessageCircle, Trophy, Clock, ChevronDown } from "lucide-react"
 import Icon from "@/components/ui/icon"
+
+const STREAM_STATUS_URL = "https://functions.poehali.dev/bb5d235b-ef0b-4951-9832-313be3b6e74f"
 
 const links = [
   {
@@ -70,6 +72,22 @@ const itemVariants = {
 
 export function LinkBioPage() {
   const [convoyOpen, setConvoyOpen] = useState(false)
+  const [streamData, setStreamData] = useState<{
+    stream: { live: boolean; title: string; viewers: number }
+    convoy_players: number
+  } | null>(null)
+
+  useEffect(() => {
+    const fetchStatus = () => {
+      fetch(STREAM_STATUS_URL)
+        .then((r) => r.json())
+        .then((data) => setStreamData(data))
+        .catch(() => {})
+    }
+    fetchStatus()
+    const interval = setInterval(fetchStatus, 60000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <main className="relative min-h-screen px-6 py-10 flex flex-col overflow-hidden">
@@ -248,7 +266,18 @@ export function LinkBioPage() {
                   <Icon name="Truck" size={20} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-[15px] font-semibold text-white tracking-tight">Конвои</h3>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-[15px] font-semibold text-white tracking-tight">Конвои</h3>
+                    {streamData?.stream?.live && (
+                      <span
+                        className="flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide text-white"
+                        style={{ background: "rgba(239, 68, 68, 0.85)" }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
+                        В эфире
+                      </span>
+                    )}
+                  </div>
                   <p className="text-[12px] text-purple-200/60 mt-0.5">Нажми, чтобы увидеть номер</p>
                 </div>
                 <ChevronDown
@@ -264,12 +293,42 @@ export function LinkBioPage() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div
-                      className="mx-4 mb-4 rounded-xl px-4 py-3 flex items-center justify-between"
-                      style={{ background: "rgba(147, 51, 234, 0.15)", border: "1px solid rgba(147, 51, 234, 0.3)" }}
-                    >
-                      <span className="text-white/70 text-sm">Номер конвоя</span>
-                      <span className="text-white font-mono font-bold text-sm">{convoyNumber}</span>
+                    <div className="mx-4 mb-4 space-y-2">
+                      <div
+                        className="rounded-xl px-4 py-3 flex items-center justify-between"
+                        style={{ background: "rgba(147, 51, 234, 0.15)", border: "1px solid rgba(147, 51, 234, 0.3)" }}
+                      >
+                        <span className="text-white/70 text-sm">Номер конвоя</span>
+                        <span className="text-white font-mono font-bold text-sm">{convoyNumber}</span>
+                      </div>
+                      {streamData !== null && (
+                        <div
+                          className="rounded-xl px-4 py-3 flex items-center justify-between"
+                          style={{ background: "rgba(147, 51, 234, 0.10)", border: "1px solid rgba(147, 51, 234, 0.2)" }}
+                        >
+                          <span className="text-white/70 text-sm flex items-center gap-1.5">
+                            <Icon name="Users" size={14} className="text-purple-400" />
+                            Игроков в ETS2 сейчас
+                          </span>
+                          <span className="text-white font-bold text-sm">
+                            {streamData.convoy_players.toLocaleString("ru-RU")}
+                          </span>
+                        </div>
+                      )}
+                      {streamData?.stream?.live && (
+                        <div
+                          className="rounded-xl px-4 py-3 flex items-center justify-between"
+                          style={{ background: "rgba(239, 68, 68, 0.12)", border: "1px solid rgba(239, 68, 68, 0.3)" }}
+                        >
+                          <span className="text-white/70 text-sm flex items-center gap-1.5">
+                            <Icon name="Eye" size={14} className="text-red-400" />
+                            Зрителей на стриме
+                          </span>
+                          <span className="text-white font-bold text-sm">
+                            {streamData.stream.viewers.toLocaleString("ru-RU")}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 )}
